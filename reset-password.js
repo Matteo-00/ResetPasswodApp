@@ -180,7 +180,7 @@
     if (!code) return false;
 
     try {
-      const { error } = await supabaseClient.auth.exchangeCodeForSession(window.location.href);
+      const { error } = await supabaseClient.auth.exchangeCodeForSession(code);
       return !error;
     } catch {
       return false;
