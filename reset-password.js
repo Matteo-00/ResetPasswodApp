@@ -174,18 +174,6 @@
     return hash.get("error") || query.get("error");
   }
 
-  async function tryExchangePkceCode() {
-    const query = new URLSearchParams(window.location.search);
-    const code = query.get("code");
-    if (!code) return false;
-
-    try {
-      const { error } = await supabaseClient.auth.exchangeCodeForSession(code);
-      return !error;
-    } catch {
-      return false;
-    }
-  }
 
   let resolved = false;
 
@@ -208,12 +196,7 @@
       }
     });
 
-    // Percorso PKCE: scambia il "code" con una sessione valida.
-    const exchanged = await tryExchangePkceCode();
-    if (exchanged) {
-      resolveOnce(true);
-      return;
-    }
+  
 
     // Fallback: se dopo l'inizializzazione risulta già una sessione attiva
     // (es. hash già processato da detectSessionInUrl), consideriamola valida.
