@@ -183,33 +183,79 @@
     showState(hasValidRecoverySession ? stateForm : stateInvalid);
   }
 
-  async function initRecoveryCheck() {
-    if (hasUrlError()) {
-      resolveOnce(false);
-      return;
-    }
+async function initRecoveryCheck() {
+  if (hasUrlError()) {
+    resolveOnce(false);
+    return;
+  }
 
-    // Ascolta l'evento ufficiale emesso da Supabase per il recovery flow.
-    supabaseClient.auth.onAuthStateChange((event, session) => {
-      if (event === "PASSWORD_RECOVERY" && session) {
-        resolveOnce(true);
+  try {
+    // Controlliamo se Supabase ci ha mandato un Auth Code PKCE
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
+
+    if (code) {
+      console.log("Auth code trovato:", code);
+
+      // Scambiamo il code per una vera sessione Supabase
+      const { data, error } =
+        await supabaseClient.auth.exchangeCodeForSession(code);
+
+      if (error) {
+        console.error("Errore exchangeCodeForSession:", error);
+        resolveOnce(false);
+        return;
       }
-    });
 
-  
+      if (!data || !data.session) {
+        console.error("Nessuna sessione ottenuta dal code.");
+        resolveOnce(false);
+        return;
+      }
 
-    // Fallback: se dopo l'inizializzazione risulta già una sessione attiva
-    // (es. hash già processato da detectSessionInUrl), consideriamola valida.
-    const { data } = await supabaseClient.auth.getSession();
-    if (data && data.session) {
+      console.log("Recovery session ottenuta correttamente.");
+
+      // Il code non serve più: lo togliamo dall'URL
+      window.history.replaceState(
+        {},
+        document.title,
+        window.location.pathname
+      );
+
       resolveOnce(true);
       return;
     }
 
-    // Timeout di sicurezza: se non arriva nessuna sessione di recovery
-    // entro pochi secondi, il link non è utilizzabile.
-    setTimeout(() => resolveOnce(false), RECOVERY_TIMEOUT_MS);
+    // Fallback per eventuale flusso con access_token nell'hash
+    supabaseClient.auth.onAuthStateChange((event, session) => {
+      console.log("Auth event:", event);
+
+      if (event === "PASSWORD_RECOVERY" && session) {
+        console.log("PASSWORD_RECOVERY ricevuto.");
+        resolveOnce(true);
+      }
+    });
+
+    // Controlliamo se esiste già una sessione
+    const { data } = await supabaseClient.auth.getSession();
+
+    if (data && data.session) {
+      console.log("Sessione Supabase già presente.");
+      resolveOnce(true);
+      return;
+    }
+
+    // Nessuna sessione
+    setTimeout(() => {
+      console.error("Timeout: nessuna recovery session.");
+      resolveOnce(false);
+    }, RECOVERY_TIMEOUT_MS);
+
+  } catch (err) {
+    console.error("Errore durante il recovery:", err);
+    resolveOnce(false);
   }
+}
 
   initRecoveryCheck();
 })();
