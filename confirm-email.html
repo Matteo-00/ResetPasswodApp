@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Email confermata · Visit Gubbio</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="confirm-email.css" />
+</head>
+
+<body>
+
+  <main class="page">
+
+    <div class="card">
+
+      <img
+        class="logo"
+        src="logo.png"
+        alt="Visit Gubbio"
+      />
+
+      <!-- VERIFICA -->
+      <section id="state-loading" class="state">
+
+        <div class="spinner" aria-hidden="true"></div>
+
+        <p class="muted">
+          Verifica del tuo indirizzo email in corso…
+        </p>
+
+      </section>
+
+
+      <!-- SUCCESSO -->
+      <section id="state-success" class="state hidden">
+
+        <div class="icon-badge success">
+          ✓
+        </div>
+
+        <h1>Email confermata!</h1>
+
+        <p class="subtitle">
+          Il tuo indirizzo email è stato verificato
+          correttamente.<br /><br />
+
+          Il tuo account Visit Gubbio è ora attivo.
+        </p>
+
+        <p class="muted">
+          Puoi tornare nell'app ed effettuare il login.
+        </p>
+
+      </section>
+
+
+      <!-- ERRORE -->
+      <section id="state-invalid" class="state hidden">
+
+        <div class="icon-badge error">
+          ⚠️
+        </div>
+
+        <h1>Link non valido o scaduto</h1>
+
+        <p class="subtitle">
+          Il link di conferma non è più valido.
+          Prova a registrarti nuovamente oppure
+          richiedi un nuovo link di conferma dall'app.
+        </p>
+
+      </section>
+
+    </div>
+
+    <p class="footer-note">
+      Visit Gubbio · Scopri. Vivi. Ricorda.
+    </p>
+
+  </main>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="confirm-email.js"></script>
+
+</body>
+</html>
