@@ -1,0 +1,185 @@
+/* ============================================================
+   VISIT GUBBIO — Confirm Email Page
+   ============================================================ */
+
+:root {
+  --rosso-gubbio: #b13b2e;
+  --blu-notte: #162b3d;
+  --tortora: #b8a48f;
+  --avorio: #f7f4ef;
+  --grigio-chiaro: #e5e1db;
+  --verde-salvia: #7d8f7a;
+  --text-muted: #8c857d;
+  --error: #b71c1c;
+  --success: #2e7d32;
+
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(22, 43, 61, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--avorio) 0%,
+      var(--grigio-chiaro) 100%
+    );
+
+  color: var(--blu-notte);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.page {
+  width: 100%;
+  max-width: 440px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 16px;
+}
+
+.card {
+  width: 100%;
+
+  background: #ffffff;
+
+  border-radius: var(--radius);
+
+  box-shadow: var(--shadow);
+
+  padding: 36px 32px 32px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-align: center;
+}
+
+.logo {
+  width: 148px;
+  height: auto;
+
+  margin-bottom: 12px;
+}
+
+.state {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.state.hidden {
+  display: none;
+}
+
+.icon-badge {
+  font-size: 48px;
+  line-height: 1;
+
+  margin-bottom: 12px;
+}
+
+.icon-badge.success {
+  color: var(--success);
+}
+
+.icon-badge.error {
+  color: var(--error);
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: 700;
+
+  margin: 4px 0 8px;
+
+  color: var(--blu-notte);
+}
+
+.subtitle {
+  font-size: 14px;
+
+  color: var(--text-muted);
+
+  margin: 0 0 20px;
+
+  line-height: 1.6;
+}
+
+.muted {
+  color: var(--text-muted);
+
+  font-size: 14px;
+
+  line-height: 1.5;
+}
+
+.spinner {
+  width: 28px;
+  height: 28px;
+
+  border-radius: 50%;
+
+  border: 3px solid var(--grigio-chiaro);
+
+  border-top-color: var(--rosso-gubbio);
+
+  animation: spin 0.8s linear infinite;
+
+  margin-bottom: 18px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.footer-note {
+  font-size: 12px;
+
+  color: var(--text-muted);
+
+  letter-spacing: 0.2px;
+}
+
+@media (max-width: 420px) {
+
+  .card {
+    padding: 28px 20px 24px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+}
