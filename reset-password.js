@@ -18,7 +18,7 @@
   const SUPABASE_ANON_KEY =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtjb2dsaXZiYWtqeXhzem9ydWthIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwNDA0NTcsImV4cCI6MjA4ODYxNjQ1N30.ICFTE2V6Y62BjT2gagazjLvyW8RZIZUji_D575hC5sY";
 
-  const MIN_PASSWORD_LENGTH = 8;
+  const MIN_PASSWORD_LENGTH = 6;
   // Tempo massimo di attesa per la verifica del link di recovery
   const RECOVERY_TIMEOUT_MS = 4000;
 
@@ -46,7 +46,6 @@
   const errorGeneral = document.getElementById("error-general");
   const submitBtn = document.getElementById("submit-btn");
   const submitLabel = document.getElementById("submit-label");
-  const submitSpinner = document.getElementById("submit-spinner");
 
   function showState(state) {
     [stateLoading, stateForm, stateSuccess, stateInvalid].forEach((el) => {
@@ -62,7 +61,6 @@
 
   function setSubmitting(isSubmitting) {
     submitBtn.disabled = isSubmitting;
-    submitSpinner.classList.toggle("hidden", !isSubmitting);
     submitLabel.textContent = isSubmitting ? "Attendere…" : "Cambia password";
   }
 
@@ -74,7 +72,9 @@
       const targetId = btn.getAttribute("data-target");
       const input = document.getElementById(targetId);
       if (!input) return;
-      input.type = input.type === "password" ? "text" : "password";
+      const nowVisible = input.type === "password";
+      input.type = nowVisible ? "text" : "password";
+      btn.textContent = nowVisible ? "Nascondi" : "Mostra";
     });
   });
 
@@ -101,7 +101,21 @@
 
   // ------------------------------------------------------------
   // Validazione form
+  // isLiveCheck = true → usata mentre l'utente digita, solo per
+  // abilitare/disabilitare il bottone, senza mostrare errori invasivi
+  // finché non prova a inviare.
   // ------------------------------------------------------------
+  function isFormValid() {
+    const password = passwordInput.value;
+    const confirm = passwordConfirmInput.value;
+
+    return (
+      password.length >= MIN_PASSWORD_LENGTH &&
+      confirm.length > 0 &&
+      password === confirm
+    );
+  }
+
   function validateForm() {
     clearFieldErrors();
     let valid = true;
@@ -128,6 +142,15 @@
     return valid;
   }
 
+  // Il bottone si abilita solo quando entrambe le password sono
+  // presenti, la nuova rispetta la lunghezza minima e coincidono.
+  function updateSubmitState() {
+    submitBtn.disabled = !isFormValid();
+  }
+
+  passwordInput.addEventListener("input", updateSubmitState);
+  passwordConfirmInput.addEventListener("input", updateSubmitState);
+
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -150,6 +173,7 @@
     } catch (err) {
       errorGeneral.textContent = translateUpdateError(err);
       setSubmitting(false);
+      updateSubmitState();
     }
   });
 
@@ -168,54 +192,54 @@
   // che intercettiamo per mostrare subito lo stato "link non valido".
   // ------------------------------------------------------------
 
-function hasUrlError() {
-  const hash = new URLSearchParams(window.location.hash.replace(/^#/, ""));
-  const query = new URLSearchParams(window.location.search);
-  return hash.get("error") || query.get("error");
-}
-
-let resolved = false;
-
-function resolveOnce(hasValidRecoverySession) {
-  if (resolved) return;
-  resolved = true;
-  showState(hasValidRecoverySession ? stateForm : stateInvalid);
-}
-
-async function initRecoveryCheck() {
-  if (hasUrlError()) {
-    resolveOnce(false);
-    return;
+  function hasUrlError() {
+    const hash = new URLSearchParams(window.location.hash.replace(/^#/, ""));
+    const query = new URLSearchParams(window.location.search);
+    return hash.get("error") || query.get("error");
   }
 
-  try {
-    // Flusso implicito: i token arrivano nell'hash dell'URL
-    // (#access_token=...&type=recovery). Il client li rileva da solo
-    // grazie a detectSessionInUrl ed emette l'evento 'PASSWORD_RECOVERY'.
-    supabaseClient.auth.onAuthStateChange((event, session) => {
-      if (event === "PASSWORD_RECOVERY" && session) {
-        resolveOnce(true);
-      }
-    });
+  let resolved = false;
 
-    // Se detectSessionInUrl ha già processato l'hash prima che il listener
-    // fosse registrato, la sessione risulta già presente.
-    const { data } = await supabaseClient.auth.getSession();
+  function resolveOnce(hasValidRecoverySession) {
+    if (resolved) return;
+    resolved = true;
+    showState(hasValidRecoverySession ? stateForm : stateInvalid);
+  }
 
-    if (data && data.session) {
-      resolveOnce(true);
-      // Ripulisce l'hash con i token dall'URL per sicurezza.
-      window.history.replaceState({}, document.title, window.location.pathname);
+  async function initRecoveryCheck() {
+    if (hasUrlError()) {
+      resolveOnce(false);
       return;
     }
 
-    setTimeout(() => {
-      resolveOnce(false);
-    }, RECOVERY_TIMEOUT_MS);
-  } catch (err) {
-    resolveOnce(false);
-  }
-}
+    try {
+      // Flusso implicito: i token arrivano nell'hash dell'URL
+      // (#access_token=...&type=recovery). Il client li rileva da solo
+      // grazie a detectSessionInUrl ed emette l'evento 'PASSWORD_RECOVERY'.
+      supabaseClient.auth.onAuthStateChange((event, session) => {
+        if (event === "PASSWORD_RECOVERY" && session) {
+          resolveOnce(true);
+        }
+      });
 
-initRecoveryCheck();
+      // Se detectSessionInUrl ha già processato l'hash prima che il listener
+      // fosse registrato, la sessione risulta già presente.
+      const { data } = await supabaseClient.auth.getSession();
+
+      if (data && data.session) {
+        resolveOnce(true);
+        // Ripulisce l'hash con i token dall'URL per sicurezza.
+        window.history.replaceState({}, document.title, window.location.pathname);
+        return;
+      }
+
+      setTimeout(() => {
+        resolveOnce(false);
+      }, RECOVERY_TIMEOUT_MS);
+    } catch (err) {
+      resolveOnce(false);
+    }
+  }
+
+  initRecoveryCheck();
 })();
