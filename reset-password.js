@@ -168,20 +168,19 @@
   // che intercettiamo per mostrare subito lo stato "link non valido".
   // ------------------------------------------------------------
 
-  function hasUrlError() {
-    const hash = new URLSearchParams(window.location.hash.replace(/^#/, ""));
-    const query = new URLSearchParams(window.location.search);
-    return hash.get("error") || query.get("error");
-  }
+function hasUrlError() {
+  const hash = new URLSearchParams(window.location.hash.replace(/^#/, ""));
+  const query = new URLSearchParams(window.location.search);
+  return hash.get("error") || query.get("error");
+}
 
+let resolved = false;
 
-  let resolved = false;
-
-  function resolveOnce(hasValidRecoverySession) {
-    if (resolved) return;
-    resolved = true;
-    showState(hasValidRecoverySession ? stateForm : stateInvalid);
-  }
+function resolveOnce(hasValidRecoverySession) {
+  if (resolved) return;
+  resolved = true;
+  showState(hasValidRecoverySession ? stateForm : stateInvalid);
+}
 
 async function initRecoveryCheck() {
   if (hasUrlError()) {
@@ -190,72 +189,33 @@ async function initRecoveryCheck() {
   }
 
   try {
-    // Controlliamo se Supabase ci ha mandato un Auth Code PKCE
-    const params = new URLSearchParams(window.location.search);
-    const code = params.get("code");
-
-    if (code) {
-      console.log("Auth code trovato:", code);
-
-      // Scambiamo il code per una vera sessione Supabase
-      const { data, error } =
-        await supabaseClient.auth.exchangeCodeForSession(code);
-
-      if (error) {
-        console.error("Errore exchangeCodeForSession:", error);
-        resolveOnce(false);
-        return;
-      }
-
-      if (!data || !data.session) {
-        console.error("Nessuna sessione ottenuta dal code.");
-        resolveOnce(false);
-        return;
-      }
-
-      console.log("Recovery session ottenuta correttamente.");
-
-      // Il code non serve più: lo togliamo dall'URL
-      window.history.replaceState(
-        {},
-        document.title,
-        window.location.pathname
-      );
-
-      resolveOnce(true);
-      return;
-    }
-
-    // Fallback per eventuale flusso con access_token nell'hash
+    // Flusso implicito: i token arrivano nell'hash dell'URL
+    // (#access_token=...&type=recovery). Il client li rileva da solo
+    // grazie a detectSessionInUrl ed emette l'evento 'PASSWORD_RECOVERY'.
     supabaseClient.auth.onAuthStateChange((event, session) => {
-      console.log("Auth event:", event);
-
       if (event === "PASSWORD_RECOVERY" && session) {
-        console.log("PASSWORD_RECOVERY ricevuto.");
         resolveOnce(true);
       }
     });
 
-    // Controlliamo se esiste già una sessione
+    // Se detectSessionInUrl ha già processato l'hash prima che il listener
+    // fosse registrato, la sessione risulta già presente.
     const { data } = await supabaseClient.auth.getSession();
 
     if (data && data.session) {
-      console.log("Sessione Supabase già presente.");
       resolveOnce(true);
+      // Ripulisce l'hash con i token dall'URL per sicurezza.
+      window.history.replaceState({}, document.title, window.location.pathname);
       return;
     }
 
-    // Nessuna sessione
     setTimeout(() => {
-      console.error("Timeout: nessuna recovery session.");
       resolveOnce(false);
     }, RECOVERY_TIMEOUT_MS);
-
   } catch (err) {
-    console.error("Errore durante il recovery:", err);
     resolveOnce(false);
   }
 }
 
-  initRecoveryCheck();
+initRecoveryCheck();
 })();
