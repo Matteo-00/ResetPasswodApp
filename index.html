@@ -2,9 +2,15 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
   <title>Visit Gubbio</title>
   <!-- Redirect automatico alla pagina di reset password -->
   <meta http-equiv="refresh" content="0; url=reset-password.html" />
+  <script>
+    // Fallback nel caso il meta refresh venga bloccato dal browser
+    window.location.replace("reset-password.html");
+  </script>
 </head>
 <body>
   <p>Reindirizzamento in corso… <a href="reset-password.html">clicca qui</a> se non avvenisse automaticamente.</p>
