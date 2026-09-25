@@ -4,7 +4,6 @@
   const SUPABASE_URL =
     "https://kcoglivbakjyxszoruka.supabase.co";
 
-  // METTI QUI LA STESSA ANON KEY CHE HAI NEL reset-password.js
   const SUPABASE_ANON_KEY =  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtjb2dsaXZiYWtqeXhzem9ydWthIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMwNDA0NTcsImV4cCI6MjA4ODYxNjQ1N30.ICFTE2V6Y62BjT2gagazjLvyW8RZIZUji_D575hC5sY";
 
   const supabaseClient = window.supabase.createClient(
@@ -29,69 +28,76 @@
     });
   }
 
-  function hasUrlError() {
-    const hash = new URLSearchParams(
-      window.location.hash.replace(/^#/, "")
-    );
-
-    const query = new URLSearchParams(window.location.search);
-
-    return (
-      hash.get("error") ||
-      query.get("error") ||
-      hash.get("error_code") ||
-      query.get("error_code")
-    );
-  }
-
   async function creaUtente() {
     try {
-      // Controlliamo eventuali errori nel link
-      if (hasUrlError()) {
-        console.error("Link di conferma non valido.");
-        showState(stateInvalid);
-        return;
-      }
+      console.log("URL:", window.location.href);
+      console.log("HASH:", window.location.hash);
+      console.log("QUERY:", window.location.search);
 
-      // Diamo tempo a Supabase di elaborare il token
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      /*
+       * Aspettiamo che Supabase elabori il link
+       * di conferma presente nell'URL.
+       */
+      await new Promise((resolve) => setTimeout(resolve, 1500));
 
-      // Recuperiamo l'utente autenticato
-      const { data, error } =
-        await supabaseClient.auth.getUser();
+      const {
+        data: { session },
+        error: sessionError,
+      } = await supabaseClient.auth.getSession();
 
-      if (error || !data.user) {
+      console.log("SESSION:", session);
+      console.log("SESSION ERROR:", sessionError);
+
+      if (sessionError || !session) {
         console.error(
-          "Utente non disponibile:",
-          error
+          "Nessuna sessione trovata dopo la conferma."
         );
 
         showState(stateInvalid);
         return;
       }
 
-      const user = data.user;
+      const {
+        data: { user },
+        error: userError,
+      } = await supabaseClient.auth.getUser();
 
-      console.log("EMAIL CONFERMATA");
-      console.log("User ID:", user.id);
-      console.log("Email:", user.email);
-      console.log("Metadata:", user.user_metadata);
+      console.log("USER:", user);
+      console.log("USER ERROR:", userError);
+
+      if (userError || !user) {
+        console.error(
+          "Impossibile recuperare l'utente."
+        );
+
+        showState(stateInvalid);
+        return;
+      }
+
+      console.log("EMAIL CONFERMATA!");
+      console.log("ID:", user.id);
+      console.log("EMAIL:", user.email);
+      console.log("METADATA:", user.user_metadata);
 
       const nome = user.user_metadata?.nome ?? "";
       const cognome = user.user_metadata?.cognome ?? "";
       const email = user.email ?? "";
 
-      // Controlliamo se esiste già il profilo
-      const { data: existingUser, error: existingError } =
-        await supabaseClient
-          .from("utenti")
-          .select("id")
-          .eq("id", user.id)
-          .maybeSingle();
+      /*
+       * Controlliamo se il profilo esiste già
+       */
+      const {
+        data: existingUser,
+        error: existingError,
+      } = await supabaseClient
+        .from("utenti")
+        .select("id")
+        .eq("id", user.id)
+        .maybeSingle();
 
       if (existingError) {
         console.error(
-          "Errore controllo utente:",
+          "Errore controllo utenti:",
           existingError
         );
 
@@ -99,7 +105,9 @@
         return;
       }
 
-      // Se non esiste, lo creiamo
+      /*
+       * Se non esiste, lo creiamo
+       */
       if (!existingUser) {
         const { error: insertError } =
           await supabaseClient
@@ -113,7 +121,7 @@
 
         if (insertError) {
           console.error(
-            "Errore inserimento utenti:",
+            "ERRORE INSERT UTENTI:",
             insertError
           );
 
@@ -122,18 +130,19 @@
         }
 
         console.log(
-          "UTENTE INSERITO CORRETTAMENTE IN utenti"
+          "UTENTE INSERITO CORRETTAMENTE!"
         );
       } else {
         console.log(
-          "Utente già presente nella tabella utenti."
+          "UTENTE GIÀ PRESENTE."
         );
       }
 
-      // Tutto completato
       showState(stateSuccess);
 
-      // Puliamo l'URL
+      /*
+       * Puliamo il token dall'URL
+       */
       window.history.replaceState(
         {},
         document.title,
@@ -142,7 +151,7 @@
 
     } catch (error) {
       console.error(
-        "Errore durante la conferma email:",
+        "ERRORE CONFERMA EMAIL:",
         error
       );
 
@@ -150,23 +159,26 @@
     }
   }
 
-  // Quando Supabase completa l'autenticazione
+  /*
+   * Aspettiamo gli eventi di Supabase
+   */
   supabaseClient.auth.onAuthStateChange(
-    async (event, session) => {
-
-      console.log("Auth event:", event);
-
-      if (
-        (event === "SIGNED_IN" ||
-          event === "INITIAL_SESSION") &&
+    (event, session) => {
+      console.log(
+        "AUTH EVENT:",
+        event,
         session
-      ) {
-        await creaUtente();
+      );
+
+      if (session) {
+        creaUtente();
       }
     }
   );
 
-  // Avviamo comunque il controllo
+  /*
+   * Avvio
+   */
   creaUtente();
 
 })();
