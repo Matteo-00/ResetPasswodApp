@@ -23,19 +23,20 @@
 
 <h2>1. Titolare del trattamento</h2>
 <p>Titolare del trattamento: <strong>Matteo Sebastiani</strong><br>
-Indirizzo: Strada del migliaiolo<br>
+Indirizzo: Strada del migliaiolo 1 / Gubbio(PG) 06024 <br>
 Email di contatto per questioni sulla privacy: <strong>visitgubbioapp@gmail.com</strong></p>
 
 <h2>2. Dati che raccogliamo</h2>
 <table>
 <tr><th>Categoria</th><th>Dati</th><th>Quando</th></tr>
-<tr><td>Dati di registrazione e account</td><td>Nome, cognome, indirizzo email, password (password gestita tramite il sistema di autenticazione e non memorizzata in chiaro), data di nascita (se fornita), ruolo dell'account (utente/amministratore)</td><td>Quando crei un account o effettui l'accesso</td></tr>
-<tr><td>Dati di posizione</td><td>Posizione geografica approssimata o precisa del dispositivo</td><td>Solo se concedi il permesso di localizzazione, per mostrare la tua posizione sulla mappa e i luoghi/itinerari vicini</td></tr>
-<tr><td>Contenuti caricati</td><td>Immagini selezionate dalla galleria del dispositivo e testi inseriti (es. eventi), disponibili solo per le funzioni riservate agli amministratori</td><td>Solo se usi tali funzioni</td></tr>
+<tr><td>Dati di registrazione e account</td><td>Nome, cognome, indirizzo email, password (gestita dal sistema di autenticazione e mai memorizzata in chiaro), ruolo dell'account (utente/amministratore)</td><td>Quando crei un account o effettui l'accesso</td></tr>
+<tr><td>Dati di posizione</td><td>Posizione geografica approssimata o precisa del dispositivo, usata solo mentre l'App è aperta (nessuna rilevazione in background)</td><td>Solo se concedi il permesso di localizzazione, per mostrare la tua posizione sulla mappa e i luoghi/itinerari vicini</td></tr>
+<tr><td>Contenuti caricati</td><td>Immagini selezionate dalla galleria del dispositivo (mai dalla fotocamera) e testi inseriti (es. eventi, ristoranti, bar, itinerari), caricati solo dagli amministratori dell'App</td><td>Solo se usi tali funzioni</td></tr>
 <tr><td>Preferenze e consensi</td><td>Scelte di consenso privacy e impostazioni dell'App (es. lingua), salvate localmente sul dispositivo</td><td>Durante l'uso dell'App</td></tr>
 <tr><td>Dati tecnici</td><td>Indirizzo IP e dati tecnici di connessione, trattati dai nostri fornitori per il funzionamento e la sicurezza del servizio</td><td>Durante l'uso dell'App</td></tr>
 </table>
-<p>Non raccogliamo dati di pagamento, né categorie particolari di dati (dati sanitari, biometrici, religiosi, ecc.). Non utilizziamo pubblicità né strumenti di profilazione o di analisi di terze parti.</p>
+<p>Non raccogliamo dati di pagamento, data di nascita, né categorie particolari di dati (dati sanitari, biometrici, religiosi, ecc.). Non utilizziamo pubblicità né strumenti di profilazione o di analisi di terze parti.</p>
+<p>Le schede di ristoranti, bar ed eventi possono mostrare un numero di telefono: è un'informazione pubblica dell'attività commerciale, inserita da un amministratore, e non un dato personale di un utente dell'App.</p>
 
 <h2>3. Finalità e basi giuridiche</h2>
 <ul>
@@ -49,8 +50,8 @@ Email di contatto per questioni sulla privacy: <strong>visitgubbioapp@gmail.com<
 <h2>4. Con chi condividiamo i dati</h2>
 <p>Non vendiamo i tuoi dati personali. I dati possono essere trattati dai seguenti fornitori di servizi, che agiscono come responsabili del trattamento:</p>
 <ul>
-<li><strong>Supabase</strong> – servizi di autenticazione, database e archiviazione (hosting dei dati dell'account e dei contenuti dell'App).</li>
-<li><strong>Google (Google Maps)</strong> – visualizzazione delle mappe; Google può ricevere dati tecnici (es. indirizzo IP) e la posizione visualizzata, secondo la <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">propria informativa</a>.</li>
+<li><strong>Supabase</strong> – servizi di autenticazione, database e archiviazione (hosting dei dati dell'account e dei contenuti dell'App). La posizione del dispositivo non viene mai inviata né salvata su Supabase.</li>
+<li><strong>Google (Google Maps)</strong> – usiamo l'SDK Google Maps per mostrare la mappa. Per disegnare la mappa e il punto che indica dove ti trovi, le coordinate di posizione che il dispositivo rileva vengono necessariamente elaborate da Google (non le inviamo noi a un server separato: è una funzione integrata dell'SDK). Google può inoltre ricevere dati tecnici (es. indirizzo IP). Questo trattamento è regolato dalla <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">informativa privacy di Google</a>. Non è necessario alcun accordo separato da parte tua: l'uso dell'SDK è già regolato dai Google Maps Platform Terms of Service accettati in fase di attivazione della chiave API.</li>
 </ul>
 <p>I dati possono inoltre essere comunicati alle autorità competenti quando richiesto dalla legge. I dati del tuo profilo non sono visibili agli altri utenti.</p>
 
@@ -75,7 +76,7 @@ Email di contatto per questioni sulla privacy: <strong>visitgubbioapp@gmail.com<
 
 <h2>11. Permessi del dispositivo</h2>
 <ul>
-<li><strong>Posizione (precisa/approssimata)</strong>: per mostrare la tua posizione sulla mappa. Facoltativo.</li>
+<li><strong>Posizione (precisa/approssimata)</strong>: per mostrare la tua posizione sulla mappa, solo mentre l'App è aperta in primo piano (non viene mai rilevata in background). Facoltativo.</li>
 <li><strong>Internet</strong>: per caricare contenuti e comunicare con i nostri server.</li>
 <li><strong>Foto/Galleria</strong>: solo per selezionare immagini nelle funzioni dedicate. Facoltativo.</li>
 </ul>
