@@ -7,47 +7,58 @@
 
 <style>
   body{
-    font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
     line-height:1.65;
     color:#222;
-    max-width:820px;
+    max-width:860px;
     margin:0 auto;
-    padding:24px 18px 60px
+    padding:24px 18px 60px;
   }
 
   h1{
     font-size:1.9rem;
-    margin-bottom:.2em
+    margin-bottom:.2em;
   }
 
   h2{
     font-size:1.25rem;
     margin-top:2em;
     border-bottom:1px solid #ddd;
-    padding-bottom:.3em
+    padding-bottom:.3em;
   }
 
   table{
     border-collapse:collapse;
     width:100%;
     margin:1em 0;
-    font-size:.95rem
+    font-size:.95rem;
   }
 
   th,td{
     border:1px solid #ccc;
     padding:8px;
     text-align:left;
-    vertical-align:top
+    vertical-align:top;
   }
 
   th{
-    background:#f3f3f3
+    background:#f3f3f3;
   }
 
   .upd{
     color:#666;
-    font-size:.9rem
+    font-size:.9rem;
+  }
+
+  .note{
+    background:#f7f7f7;
+    border-left:4px solid #bbb;
+    padding:10px 12px;
+    margin:1em 0;
+  }
+
+  a{
+    overflow-wrap:anywhere;
   }
 </style>
 </head>
@@ -58,7 +69,7 @@
 
 <p class="upd">
 App: <strong>Visit Gubbio</strong> (Android / iOS / Web) –
-Ultimo aggiornamento: 4 ottobre 2026
+Ultimo aggiornamento: 7 ottobre 2026
 </p>
 
 <p>
@@ -84,11 +95,10 @@ Email di contatto per questioni relative alla privacy:
 <h2>2. Dati che raccogliamo</h2>
 
 <table>
-
 <tr>
 <th>Categoria</th>
 <th>Dati</th>
-<th>Quando</th>
+<th>Quando / perché</th>
 </tr>
 
 <tr>
@@ -104,7 +114,7 @@ Quando crei un account o effettui l'accesso.
 </tr>
 
 <tr>
-<td>Dati di posizione</td>
+<td>Posizione del dispositivo dell'utente</td>
 <td>
 Posizione geografica approssimata o precisa del dispositivo,
 utilizzata solo mentre l'App è aperta. Non viene effettuata
@@ -117,7 +127,25 @@ la tua posizione sulla mappa e individuare luoghi o itinerari vicini.
 </tr>
 
 <tr>
-<td>Contenuti caricati</td>
+<td>Dati relativi a luoghi, attività ed eventi</td>
+<td>
+Informazioni necessarie a rappresentare sulla mappa e nelle schede
+eventi, ristoranti, bar, strutture ricettive, punti di interesse e altri
+contenuti turistici, come nome del luogo o dell'attività, indirizzo,
+descrizione, eventuali recapiti pubblici, immagini e <strong>coordinate geografiche
+(latitude e longitudine)</strong> del luogo o della sede dell'evento.
+Tali informazioni sono <strong>inserite manualmente dagli amministratori di Visit Gubbio</strong>
+e non vengono importate automaticamente da Google Places, Geocoding API o analoghi
+servizi di terze parti.
+</td>
+<td>
+Quando tali contenuti vengono inseriti o aggiornati nel database
+per consentire la visualizzazione corretta sulla mappa.
+</td>
+</tr>
+
+<tr>
+<td>Contenuti caricati dagli amministratori</td>
 <td>
 Immagini selezionate dalla galleria del dispositivo e testi
 relativi, ad esempio, a eventi, ristoranti, bar o itinerari.
@@ -140,18 +168,32 @@ Durante l'utilizzo dell'App.
 </tr>
 
 <tr>
-<td>Dati tecnici</td>
+<td>Dati tecnici e di utilizzo</td>
 <td>
 Indirizzo IP e altri dati tecnici di connessione o del dispositivo
 trattati dai fornitori tecnici per il funzionamento, la sicurezza
-e l'erogazione del servizio.
+e l'erogazione del servizio. In relazione a Google Maps, in base alla
+configurazione e alle funzionalità utilizzate, possono essere trattati
+anche metadati del dispositivo e delle richieste, dati relativi a errori
+o arresti anomali, identificativi tecnici/pseudonimi dell'SDK e dati
+di interazione con la mappa.
 </td>
 <td>
-Durante l'utilizzo dell'App.
+Durante l'utilizzo dell'App e dei servizi cartografici.
 </td>
 </tr>
-
 </table>
+
+<div class="note">
+<strong>Importante distinzione:</strong> le coordinate di latitude e longitude
+salvate nel database per identificare ristoranti, bar, eventi, hotel,
+punti di interesse o altri luoghi descrivono la <strong>posizione del luogo</strong>
+e non la posizione del dispositivo dell'utente. Queste coordinate, così come nomi,
+indirizzi, descrizioni e immagini dei contenuti turistici, vengono inserite manualmente
+dagli amministratori dell'App e non sono importate automaticamente da API di Google Maps.
+La posizione del dispositivo dell'utente non viene memorizzata nel database Supabase
+gestito per Visit Gubbio.
+</div>
 
 <p>
 Non raccogliamo dati di pagamento, data di nascita né,
@@ -166,16 +208,21 @@ commerciale degli utenti.
 </p>
 
 <p>
-Le schede relative a ristoranti, bar, strutture ricettive o eventi
-possono mostrare recapiti telefonici e altre informazioni pubbliche
-relative alle attività interessate. Tali informazioni non costituiscono
-dati raccolti dagli account degli utenti dell'App.
+Le schede relative a ristoranti, bar, strutture ricettive, eventi o altri
+punti di interesse possono mostrare recapiti e informazioni pubbliche
+relative alle attività o ai luoghi interessati. Tali contenuti vengono raccolti
+e inseriti manualmente dagli amministratori dell'App. In linea generale, dati
+riferiti a un'attività, a un edificio o a un luogo non identificano di per sé
+un utente dell'App. Qualora un'informazione, un recapito o un'immagine sia invece
+riferibile a una persona fisica identificata o identificabile (ad esempio un
+referente, un'impresa individuale, un recapito personale o una persona riconoscibile
+in una fotografia), essa può costituire dato personale e viene trattata nel rispetto
+della normativa applicabile.
 </p>
 
 <h2>3. Finalità e basi giuridiche</h2>
 
 <ul>
-
 <li>
 <strong>Creazione e gestione dell'account</strong>,
 autenticazione e recupero delle credenziali –
@@ -192,13 +239,14 @@ esecuzione del servizio richiesto
 </li>
 
 <li>
-<strong>Utilizzo della posizione</strong>
+<strong>Utilizzo della posizione del dispositivo</strong>
 per mostrare la posizione dell'utente e i luoghi vicini –
 consenso dell'utente
 (art. 6, par. 1, lett. a GDPR).
-Il permesso può essere revocato in qualsiasi momento
+Il permesso è facoltativo e può essere revocato in qualsiasi momento
 dalle impostazioni del dispositivo.
 </li>
+
 
 <li>
 <strong>Sicurezza, prevenzione di abusi e protezione del servizio</strong> –
@@ -210,7 +258,6 @@ legittimo interesse del Titolare
 <strong>Adempimento di obblighi di legge</strong> –
 art. 6, par. 1, lett. c GDPR.
 </li>
-
 </ul>
 
 <h2>4. Soggetti che trattano i dati e fornitori tecnici</h2>
@@ -222,7 +269,6 @@ da soggetti che forniscono servizi tecnici per conto del Titolare.
 </p>
 
 <ul>
-
 <li>
 <strong>Gestione tecnica dell'infrastruttura</strong> –
 l'infrastruttura tecnica utilizzata dall'App è amministrata,
@@ -243,33 +289,49 @@ tecnica per servizi di autenticazione, database e archiviazione.
 Supabase opera quale fornitore tecnico/sub-responsabile del trattamento
 nell'ambito del servizio gestito dal responsabile tecnico.
 
-La posizione geografica del dispositivo non viene memorizzata
-nel database Supabase.
+Nel database Supabase possono essere memorizzati i dati dell'account,
+i contenuti amministrativi e le informazioni relative ai luoghi,
+comprese le coordinate geografiche dei luoghi, delle attività o degli eventi.
+Le informazioni relative ai luoghi (ad esempio nome, indirizzo, descrizione,
+immagini e coordinate) vengono inserite manualmente dagli amministratori di
+Visit Gubbio e non sono importate automaticamente da servizi Google Places o
+Geocoding. La <strong>posizione del dispositivo dell'utente non viene memorizzata</strong>
+nel database Supabase gestito per Visit Gubbio.
+
+Per informazioni sulle condizioni di trattamento applicate da Supabase è
+possibile consultare il
+<a href="https://supabase.com/legal/customer-resources/data-processing-addendum"
+target="_blank" rel="noopener noreferrer">Data Processing Addendum (DPA) di Supabase</a>
+e il relativo
+<a href="https://supabase.com/legal/customer-resources/subprocessor-list"
+target="_blank" rel="noopener noreferrer">elenco dei sub-responsabili</a>.
 </li>
 
 <li>
-<strong>Google (Google Maps)</strong> –
-utilizziamo Google Maps SDK per visualizzare mappe e contenuti cartografici.
+<strong>Google (Google Maps Platform / Maps SDK)</strong> –
+utilizziamo servizi Google Maps per visualizzare mappe e contenuti cartografici.
 
-In base alla configurazione e all'utilizzo dell'SDK,
-Google può trattare dati tecnici come indirizzo IP,
-informazioni sul dispositivo e dati relativi all'interazione
-con la mappa.
+In base al servizio, alla configurazione e alle funzionalità utilizzate,
+Google può trattare dati necessari alla fornitura e al miglioramento dei
+servizi cartografici, come indirizzo IP, metadati del dispositivo e delle
+richieste, dati relativi a errori o arresti anomali, identificativi tecnici
+o pseudonimi dell'SDK, dati di interazione con la mappa e, quando pertinenti
+alla richiesta cartografica, coordinate di latitude e longitude.
 
-Quando concedi il permesso di localizzazione,
-la posizione del dispositivo viene utilizzata dall'App
-per mostrarti sulla mappa e per individuare luoghi
-e itinerari vicini.
+Quando concedi il permesso di localizzazione, la posizione del dispositivo
+viene utilizzata dall'App per mostrarti sulla mappa e per individuare luoghi
+e itinerari vicini. Visit Gubbio non conserva tale posizione nel proprio
+database Supabase; l'eventuale trattamento effettuato da Google nell'ambito
+dei servizi Google Maps è disciplinato dalle condizioni e informative di Google.
 
-Per maggiori informazioni sul trattamento dei dati da parte di Google,
-consulta la
+Per maggiori informazioni consulta la
 <a href="https://policies.google.com/privacy"
-target="_blank"
-rel="noopener">
-Privacy Policy di Google
-</a>.
-</li>
+target="_blank" rel="noopener noreferrer">Privacy Policy di Google</a>.
 
+L'uso delle funzionalità e dei contenuti Google Maps è inoltre soggetto ai
+<a href="https://maps.google.com/help/terms_maps/"
+target="_blank" rel="noopener noreferrer">Termini di servizio aggiuntivi di Google Maps/Google Earth</a>.
+</li>
 </ul>
 
 <p>
@@ -284,11 +346,14 @@ agli altri utenti dell'App.
 <p>
 Alcuni fornitori tecnici possono trattare dati personali
 anche al di fuori dello Spazio Economico Europeo.
+</p>
 
+<p>
 Quando applicabile, tali trasferimenti vengono effettuati
 utilizzando gli strumenti e le garanzie previste dal GDPR,
-quali decisioni di adeguatezza,
-Clausole Contrattuali Standard o altre garanzie previste dalla normativa.
+quali decisioni di adeguatezza, Clausole Contrattuali Standard (SCC)
+o altre garanzie previste dalla normativa e dagli accordi applicabili
+con i fornitori.
 </p>
 
 <h2>6. Sicurezza</h2>
@@ -297,15 +362,18 @@ Clausole Contrattuali Standard o altre garanzie previste dalla normativa.
 I dati vengono trasmessi tramite connessioni cifrate HTTPS/TLS.
 Le password sono gestite dal sistema di autenticazione
 e non vengono memorizzate in chiaro.
+</p>
 
+<p>
 L'accesso ai dati e alle funzioni amministrative è protetto
 mediante sistemi di autenticazione e regole di sicurezza
 a livello di database.
+</p>
 
+<p>
 Vengono adottate misure tecniche e organizzative
 ragionevoli per ridurre il rischio di perdita,
 accesso non autorizzato, alterazione o divulgazione dei dati.
-
 Nessun sistema informatico può tuttavia garantire
 un livello di sicurezza assoluto.
 </p>
@@ -315,14 +383,36 @@ un livello di sicurezza assoluto.
 <p>
 I dati dell'account vengono conservati per il periodo
 in cui l'account rimane attivo.
+</p>
 
+<p>
 In caso di cancellazione dell'account,
 i dati personali associati vengono eliminati o anonimizzati,
 salvo eventuali obblighi di legge che ne richiedano
 ulteriore conservazione.
+</p>
 
-I dati relativi alla posizione del dispositivo
-non vengono memorizzati sui server gestiti per Visit Gubbio.
+<p>
+I dati relativi a luoghi, attività ed eventi, comprese le relative
+coordinate geografiche, possono essere conservati finché necessari a
+mantenere aggiornati e fruibili i contenuti turistici dell'App; vengono
+aggiornati o rimossi quando non più pertinenti o necessari. Qualora tali
+informazioni comprendano dati personali riferibili a persone fisiche,
+si applicano i principi di minimizzazione e limitazione della conservazione.
+</p>
+
+<p>
+I contenuti relativi a luoghi, attività ed eventi sono gestiti editorialmente
+dagli amministratori di Visit Gubbio. L'eventuale utilizzo di fotografie o altri
+materiali di terzi avviene nel rispetto dei relativi diritti e, quando tali
+materiali contengono dati personali, della normativa applicabile in materia
+di protezione dei dati.
+</p>
+
+<p>
+La posizione del dispositivo dell'utente non viene memorizzata sui server
+gestiti per Visit Gubbio. L'eventuale trattamento effettuato autonomamente
+dai fornitori cartografici segue le rispettive informative e condizioni.
 </p>
 
 <h2>8. Diritti degli utenti</h2>
@@ -349,10 +439,7 @@ del trattamento effettuato prima della revoca.
 <p>
 L'utente può inoltre proporre reclamo al
 <a href="https://www.garanteprivacy.it"
-target="_blank"
-rel="noopener">
-Garante per la protezione dei dati personali
-</a>.
+target="_blank" rel="noopener noreferrer">Garante per la protezione dei dati personali</a>.
 </p>
 
 <p>
@@ -366,7 +453,9 @@ Per esercitare i propri diritti è possibile scrivere a:
 Puoi cancellare autonomamente il tuo account
 direttamente dall'App tramite la sezione
 <strong>Profilo → "Elimina il mio account"</strong>.
+</p>
 
+<p>
 La cancellazione comporta l'eliminazione del profilo
 e delle credenziali di accesso associate,
 salvo eventuali dati che debbano essere conservati
@@ -375,8 +464,7 @@ per obblighi di legge.
 
 <p>
 In alternativa puoi richiedere la cancellazione
-scrivendo a
-<strong>visitgubbioapp@gmail.com</strong>
+scrivendo a <strong>visitgubbioapp@gmail.com</strong>
 utilizzando l'indirizzo email associato all'account.
 </p>
 
@@ -386,7 +474,9 @@ utilizzando l'indirizzo email associato all'account.
 L'App non è destinata ai minori di 14 anni
 e non raccoglie consapevolmente dati personali
 di minori di tale età.
+</p>
 
+<p>
 Qualora il Titolare venga a conoscenza
 di dati personali forniti da un minore
 in violazione della normativa applicabile,
@@ -396,14 +486,14 @@ adotterà le misure necessarie per la loro cancellazione.
 <h2>11. Permessi del dispositivo</h2>
 
 <ul>
-
 <li>
 <strong>Posizione approssimata o precisa</strong>:
 utilizzata per mostrare la posizione dell'utente
 sulla mappa e individuare luoghi vicini.
 La posizione viene richiesta solo durante
 l'utilizzo dell'App e non viene rilevata in background.
-Il permesso è facoltativo.
+Il permesso è facoltativo e può essere revocato dalle impostazioni
+del dispositivo.
 </li>
 
 <li>
@@ -420,25 +510,55 @@ di selezionare immagini dal dispositivo.
 Il permesso è utilizzato solo quando necessario
 e secondo le modalità previste dal sistema operativo.
 </li>
-
 </ul>
 
-<h2>12. Modifiche alla presente informativa</h2>
+<h2>12. Google Maps e documentazione legale collegata</h2>
+
+<p>
+L'App include funzionalità e contenuti di Google Maps. Per tali funzionalità
+si applicano, per quanto pertinenti, i documenti legali di Google disponibili
+ai seguenti indirizzi:
+</p>
+
+<ul>
+<li>
+<a href="https://policies.google.com/privacy"
+target="_blank" rel="noopener noreferrer">Privacy Policy di Google</a>;
+</li>
+<li>
+<a href="https://maps.google.com/help/terms_maps/"
+target="_blank" rel="noopener noreferrer">Termini di servizio aggiuntivi di Google Maps/Google Earth</a>.
+</li>
+</ul>
+
+<p>
+Questa sezione integra l'informativa privacy ma non sostituisce le Condizioni
+d'uso dell'App. Se l'App utilizza Google Maps, le Condizioni d'uso devono
+informare gli utenti che l'App include funzionalità e contenuti Google Maps
+e che il loro utilizzo è soggetto ai Termini di servizio aggiuntivi di
+Google Maps/Google Earth e alla Privacy Policy di Google.
+</p>
+
+<h2>13. Modifiche alla presente informativa</h2>
 
 <p>
 La presente informativa può essere aggiornata
 per riflettere modifiche delle funzionalità dell'App,
 dei servizi utilizzati o della normativa applicabile.
+</p>
 
+<p>
 La versione aggiornata sarà pubblicata
 a questo indirizzo riportando la relativa data
 di ultimo aggiornamento.
+</p>
 
+<p>
 In caso di modifiche sostanziali,
 gli utenti potranno essere informati anche tramite l'App.
 </p>
 
-<h2>13. Contatti</h2>
+<h2>14. Contatti</h2>
 
 <p>
 Per qualsiasi domanda relativa al trattamento dei dati personali
