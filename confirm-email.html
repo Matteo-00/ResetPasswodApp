@@ -3,10 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Email confermata · Visit Gubbio</title>
+  <title>Visit Gubbio</title>
   <meta name="robots" content="noindex, nofollow" />
   <link rel="icon" type="image/png" href="favicon.png" />
   <link rel="stylesheet" href="confirm-email.css" />
+
+  <!-- Selettore lingua: stile minimo, in più rispetto a confirm-email.css -->
+  <style>
+    .lang-switch {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin: 0 0 18px;
+    }
+    .lang-switch button {
+      border: 1px solid #d8d3cb;
+      background: #ffffff;
+      color: #162b3d;
+      font: 700 12px/1 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      letter-spacing: 0.4px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .lang-switch button[aria-pressed="true"] {
+      background: #b13b2e;
+      border-color: #b13b2e;
+      color: #ffffff;
+    }
+  </style>
 </head>
 
 <body>
@@ -14,6 +39,13 @@
   <main class="page">
 
     <div class="card">
+
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang="it">IT</button>
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="de">DE</button>
+        <button type="button" data-lang="fr">FR</button>
+      </div>
 
       <img
         class="logo"
@@ -26,9 +58,7 @@
 
         <div class="spinner" aria-hidden="true"></div>
 
-        <p class="muted">
-          Verifica del tuo indirizzo email in corso…
-        </p>
+        <p class="muted" data-i18n="loading"></p>
 
       </section>
 
@@ -40,18 +70,14 @@
           ✓
         </div>
 
-        <h1>Email confermata!</h1>
+        <h1 data-i18n="successTitle"></h1>
 
         <p class="subtitle">
-          Il tuo indirizzo email è stato verificato
-          correttamente.<br /><br />
-
-          Il tuo account Visit Gubbio è ora attivo.
+          <span data-i18n="successText1"></span><br /><br />
+          <span data-i18n="successText2"></span>
         </p>
 
-        <p class="muted">
-          Puoi tornare nell'app ed effettuare il login.
-        </p>
+        <p class="muted" data-i18n="successHint"></p>
 
       </section>
 
@@ -63,24 +89,117 @@
           ⚠️
         </div>
 
-        <h1>Link non valido o scaduto</h1>
+        <h1 data-i18n="invalidTitle"></h1>
 
-        <p class="subtitle">
-          Il link di conferma non è più valido.
-          Prova a registrarti nuovamente oppure
-          richiedi un nuovo link di conferma dall'app.
-        </p>
+        <p class="subtitle" data-i18n="invalidText"></p>
 
       </section>
 
     </div>
 
     <p class="footer-note">
-      Visit Gubbio · Scopri. Vivi. Ricorda.
+      Visit Gubbio · <span data-i18n="tagline"></span>
     </p>
 
   </main>
 
+
+  <!-- Traduzioni: lingua del browser, oppure quella scelta con i pulsanti -->
+  <script>
+    (function () {
+      var TEXTS = {
+        it: {
+          title: "Email confermata · Visit Gubbio",
+          loading: "Verifica del tuo indirizzo email in corso…",
+          successTitle: "Email confermata!",
+          successText1: "Il tuo indirizzo email è stato verificato correttamente.",
+          successText2: "Il tuo account Visit Gubbio è ora attivo.",
+          successHint: "Puoi tornare nell'app ed effettuare il login.",
+          invalidTitle: "Link non valido o scaduto",
+          invalidText: "Il link di conferma non è più valido. Prova a registrarti nuovamente oppure richiedi un nuovo link di conferma dall'app.",
+          tagline: "Scopri. Vivi. Ricorda."
+        },
+        en: {
+          title: "Email confirmed · Visit Gubbio",
+          loading: "Verifying your email address…",
+          successTitle: "Email confirmed!",
+          successText1: "Your email address has been verified successfully.",
+          successText2: "Your Visit Gubbio account is now active.",
+          successHint: "You can go back to the app and log in.",
+          invalidTitle: "Invalid or expired link",
+          invalidText: "The confirmation link is no longer valid. Try signing up again, or request a new confirmation link from the app.",
+          tagline: "Discover. Live. Remember."
+        },
+        de: {
+          title: "E-Mail bestätigt · Visit Gubbio",
+          loading: "Deine E-Mail-Adresse wird überprüft…",
+          successTitle: "E-Mail bestätigt!",
+          successText1: "Deine E-Mail-Adresse wurde erfolgreich bestätigt.",
+          successText2: "Dein Visit-Gubbio-Konto ist jetzt aktiv.",
+          successHint: "Du kannst zur App zurückkehren und dich anmelden.",
+          invalidTitle: "Ungültiger oder abgelaufener Link",
+          invalidText: "Der Bestätigungslink ist nicht mehr gültig. Registriere dich erneut oder fordere in der App einen neuen Bestätigungslink an.",
+          tagline: "Entdecken. Erleben. Erinnern."
+        },
+        fr: {
+          title: "E-mail confirmé · Visit Gubbio",
+          loading: "Vérification de votre adresse e-mail en cours…",
+          successTitle: "E-mail confirmé !",
+          successText1: "Votre adresse e-mail a bien été vérifiée.",
+          successText2: "Votre compte Visit Gubbio est maintenant actif.",
+          successHint: "Vous pouvez retourner dans l'application et vous connecter.",
+          invalidTitle: "Lien invalide ou expiré",
+          invalidText: "Le lien de confirmation n'est plus valide. Essayez de vous inscrire à nouveau ou demandez un nouveau lien de confirmation depuis l'application.",
+          tagline: "Découvrir. Vivre. Se souvenir."
+        }
+      };
+
+      var SUPPORTED = ["it", "en", "de", "fr"];
+
+      function pickLanguage() {
+        var saved = null;
+        try { saved = localStorage.getItem("vg_lang"); } catch (e) {}
+        if (saved && SUPPORTED.indexOf(saved) !== -1) return saved;
+
+        var fromUrl = new URLSearchParams(window.location.search).get("lang");
+        if (fromUrl && SUPPORTED.indexOf(fromUrl.slice(0, 2)) !== -1) {
+          return fromUrl.slice(0, 2);
+        }
+
+        var list = navigator.languages && navigator.languages.length
+          ? navigator.languages
+          : [navigator.language || "it"];
+        for (var i = 0; i < list.length; i++) {
+          var code = String(list[i]).slice(0, 2).toLowerCase();
+          if (SUPPORTED.indexOf(code) !== -1) return code;
+        }
+        return "it";
+      }
+
+      function apply(lang) {
+        var t = TEXTS[lang] || TEXTS.it;
+        document.documentElement.lang = lang;
+        document.title = t.title;
+        document.querySelectorAll("[data-i18n]").forEach(function (el) {
+          var key = el.getAttribute("data-i18n");
+          if (t[key] !== undefined) el.textContent = t[key];
+        });
+        document.querySelectorAll(".lang-switch button").forEach(function (b) {
+          b.setAttribute("aria-pressed", b.getAttribute("data-lang") === lang ? "true" : "false");
+        });
+      }
+
+      document.querySelectorAll(".lang-switch button").forEach(function (b) {
+        b.addEventListener("click", function () {
+          var lang = b.getAttribute("data-lang");
+          try { localStorage.setItem("vg_lang", lang); } catch (e) {}
+          apply(lang);
+        });
+      });
+
+      apply(pickLanguage());
+    })();
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script src="confirm-email.js"></script>
