@@ -1,18 +1,190 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" class="notranslate" translate="no">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Visit Gubbio</title>
-  <link rel="canonical" href="https://visitgubbio.eu/home.html" />
-  <!-- Redirect automatico alla home -->
-  <meta http-equiv="refresh" content="0; url=home.html" />
-  <script>
-    // Fallback nel caso il meta refresh venga bloccato dal browser
-    window.location.replace("home.html");
+  <!-- La pagina ha già le sue 4 lingue: niente traduzione automatica del browser -->
+  <meta name="google" content="notranslate" />
+  <title>Visit Gubbio · La guida di Gubbio sul tuo telefono</title>
+  <meta name="description" content="Visit Gubbio è l'app per scoprire Gubbio: mappa, luoghi, itinerari, eventi, ristoranti, hotel e storia della città." />
+  <link rel="canonical" href="https://visitgubbio.eu/" />
+  <link rel="icon" type="image/png" href="img/logo-app.png" />
+  <meta property="og:title" content="Visit Gubbio" />
+  <meta property="og:description" content="Scopri. Vivi. Ricorda. L'app per visitare Gubbio." />
+  <meta property="og:image" content="https://visitgubbio.eu/img/logo-app.png" />
+  <meta property="og:url" content="https://visitgubbio.eu/" />
+  <script>document.documentElement.className += " js";</script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebSite","name":"Visit Gubbio","url":"https://visitgubbio.eu/","inLanguage":"it"}
   </script>
+  <link rel="stylesheet" href="home.css" />
 </head>
 <body>
-  <p>Reindirizzamento in corso… <a href="home.html">clicca qui</a> se non avvenisse automaticamente.</p>
+  <main class="page">
+
+    <div class="lang-switch enter" style="--d: 0ms" role="group" aria-label="Language">
+      <button type="button" data-lang="it">IT</button>
+      <button type="button" data-lang="en">EN</button>
+      <button type="button" data-lang="de">DE</button>
+      <button type="button" data-lang="fr">FR</button>
+    </div>
+
+    <section class="hero enter" style="--d: 60ms">
+      <img class="logo" src="img/logo-app.png" width="296" height="303" alt="Visit Gubbio" />
+      <h1 class="enter" style="--d: 260ms" data-i18n="heroTitle">Gubbio, a portata di mano</h1>
+      <p class="subtitle enter" style="--d: 360ms" data-i18n="heroText">L'app per visitare la città: cosa vedere, dove mangiare, dove dormire e cosa succede oggi, tutto in un unico posto.</p>
+
+      <div class="stores enter" style="--d: 460ms">
+        <!-- I link si impostano in cima a home.js -->
+        <a class="store" id="store-ios" target="_blank" rel="noopener">
+          <span class="store-small" data-store-label></span>
+          <span class="store-name">App Store</span>
+        </a>
+        <a class="store" id="store-android" target="_blank" rel="noopener">
+          <span class="store-small" data-store-label></span>
+          <span class="store-name">Google Play</span>
+        </a>
+      </div>
+
+      <a class="hero-contact enter" style="--d: 560ms" href="#contatti">
+        <span data-i18n="heroContact">Hai bisogno di noi? Contattaci</span>
+        <span class="arrow-down" aria-hidden="true">↓</span>
+      </a>
+    </section>
+
+    <section class="features" aria-labelledby="features-title">
+      <h2 id="features-title" class="reveal" data-i18n="featuresTitle">Cosa trovi nell'app</h2>
+      <ul class="feature-grid">
+        <li class="reveal" style="--d: 0ms">
+          <button type="button" class="feature" data-feature="1">
+            <img src="img/albero.png" width="96" height="96" alt="" />
+            <h3 data-i18n="f1Title">Mappa della città</h3>
+            <p data-i18n="f1Text">Luoghi, servizi ed eventi del giorno su un'unica mappa, con i filtri che scegli tu.</p>
+            <span class="more"><span data-i18n="more">Scopri di più</span> <span aria-hidden="true">→</span></span>
+          </button>
+        </li>
+        <li class="reveal" style="--d: 90ms">
+          <button type="button" class="feature" data-feature="2">
+            <img src="img/palazzo.png" width="96" height="96" alt="" />
+            <h3 data-i18n="f2Title">Luoghi da visitare</h3>
+            <p data-i18n="f2Text">Palazzi, chiese e monumenti da scoprire, con schede e informazioni utili.</p>
+            <span class="more"><span data-i18n="more">Scopri di più</span> <span aria-hidden="true">→</span></span>
+          </button>
+        </li>
+        <li class="reveal" style="--d: 180ms">
+          <button type="button" class="feature" data-feature="3">
+            <img src="img/anfiteatro.png" width="96" height="96" alt="" />
+            <h3 data-i18n="f3Title">Itinerari</h3>
+            <p data-i18n="f3Text">Percorsi a tappe per girare Gubbio senza perdere nulla.</p>
+            <span class="more"><span data-i18n="more">Scopri di più</span> <span aria-hidden="true">→</span></span>
+          </button>
+        </li>
+        <li class="reveal" style="--d: 0ms">
+          <button type="button" class="feature" data-feature="4">
+            <img src="img/balestra.png" width="96" height="96" alt="" />
+            <h3 data-i18n="f4Title">Eventi</h3>
+            <p data-i18n="f4Text">Il calendario sempre aggiornato di quello che succede in città.</p>
+            <span class="more"><span data-i18n="more">Scopri di più</span> <span aria-hidden="true">→</span></span>
+          </button>
+        </li>
+        <li class="reveal" style="--d: 90ms">
+          <button type="button" class="feature" data-feature="5">
+            <img src="img/crescia.png" width="96" height="96" alt="" />
+            <h3 data-i18n="f5Title">Mangiare e dormire</h3>
+            <p data-i18n="f5Text">Ristoranti, bar e hotel, con le recensioni dei visitatori.</p>
+            <span class="more"><span data-i18n="more">Scopri di più</span> <span aria-hidden="true">→</span></span>
+          </button>
+        </li>
+        <li class="reveal" style="--d: 180ms">
+          <button type="button" class="feature" data-feature="6">
+            <img src="img/san_francesco.png" width="96" height="96" alt="" />
+            <h3 data-i18n="f6Title">Storia</h3>
+            <p data-i18n="f6Text">Le epoche e i racconti che hanno fatto Gubbio.</p>
+            <span class="more"><span data-i18n="more">Scopri di più</span> <span aria-hidden="true">→</span></span>
+          </button>
+        </li>
+      </ul>
+    </section>
+
+    <a class="sponsor-banner reveal" href="sponsor.html">
+      <div>
+        <h2 data-i18n="sponsorTitle">Grazie a chi crede in Gubbio</h2>
+        <p data-i18n="sponsorText">Questo progetto è reso possibile dagli sponsor e dalle attività del territorio che ogni giorno scelgono di sostenerlo.</p>
+      </div>
+      <span class="banner-cta"><span data-i18n="sponsorCta">Scopri chi ci sostiene</span> <span aria-hidden="true">→</span></span>
+    </a>
+
+    <a class="about-banner reveal" href="chi-siamo.html">
+      <div class="banner-faces" aria-hidden="true"><span>👨‍💻</span><span>👨‍🔧</span></div>
+      <div>
+        <h2 data-i18n="aboutTitle">Chi siamo</h2>
+        <p data-i18n="aboutText">Due ragazzi di Gubbio, una città da raccontare.</p>
+      </div>
+      <span class="about-cta"><span data-i18n="aboutCta">Conoscici</span> <span aria-hidden="true">→</span></span>
+    </a>
+
+    <section class="contacts" id="contatti" aria-labelledby="contacts-title">
+      <div class="contact-hero reveal">
+        <div class="faces" aria-hidden="true">
+          <span class="face face-left">🙂</span>
+          <span class="face face-main">👋</span>
+          <span class="face face-right">😊</span>
+        </div>
+        <h2 id="contacts-title" data-i18n="contactHello">Ciao! Siamo qui per te</h2>
+        <p data-i18n="contactIntro">Visit Gubbio nasce dalla passione per la nostra città. Ci farà un enorme piacere sentirti: scrivici quando vuoi!</p>
+      </div>
+
+      <div class="invite-grid">
+        <article class="invite reveal" style="--d: 0ms">
+          <div class="invite-head">
+            <span class="invite-icon icon-join" aria-hidden="true">🤝</span>
+            <h3 data-i18n="contactJoinTitle">Diventa nostro collaboratore</h3>
+          </div>
+          <p data-i18n="contactJoinText">Hai un locale, una bottega, un agriturismo o una storia da raccontare su Gubbio? Entra a far parte di Visit Gubbio e aiutaci a far conoscere la città a chi la visita.</p>
+          <a class="btn" data-mail-subject="contactSubjectJoin" data-i18n="contactWrite">Scrivici un'email</a>
+        </article>
+        <article class="invite reveal" style="--d: 110ms">
+          <div class="invite-head">
+            <span class="invite-icon icon-help" aria-hidden="true">🙋</span>
+            <h3 data-i18n="contactHelpTitle">Domande o problemi?</h3>
+          </div>
+          <p data-i18n="contactHelpText">Qualcosa non funziona o hai un'idea per migliorare l'app? Scrivici: ti rispondiamo volentieri e il più presto possibile.</p>
+          <a class="btn" data-mail-subject="contactSubjectHelp" data-i18n="contactWrite">Scrivici un'email</a>
+        </article>
+      </div>
+
+      <div class="email-card reveal">
+        <div>
+          <p class="email-label" data-i18n="contactEmailTitle">LA NOSTRA EMAIL</p>
+          <p class="email-address">visitgubbioapp@gmail.com</p>
+        </div>
+        <button type="button" class="btn-outline" id="copy-email" data-i18n="contactCopy">Copia indirizzo</button>
+      </div>
+
+      <p class="thanks reveal" data-i18n="contactThanks">Grazie di cuore per aver scelto Visit Gubbio</p>
+    </section>
+
+    <footer class="footer">
+      <p class="tagline">Visit Gubbio · <span data-i18n="tagline">Scopri. Vivi. Ricorda.</span></p>
+      <nav>
+        <a href="privacy-policy.html" data-i18n="privacy">Privacy</a>
+        <span aria-hidden="true">·</span>
+        <a href="terms.html" data-i18n="terms">Termini e condizioni</a>
+      </nav>
+    </footer>
+  </main>
+
+  <!-- Finestra di dettaglio delle funzionalità -->
+  <dialog id="feature-dialog" aria-labelledby="dialog-title">
+    <button type="button" class="dialog-close" id="dialog-close" data-i18n-aria="close">×</button>
+    <img id="dialog-image" src="img/albero.png" width="192" height="192" alt="" />
+    <h3 id="dialog-title"></h3>
+    <p id="dialog-text"></p>
+    <a class="btn" id="dialog-cta" href="#" data-i18n="dialogCta">Scrivici per saperne di più</a>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="home.js"></script>
 </body>
 </html>
