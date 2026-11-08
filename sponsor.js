@@ -18,6 +18,10 @@
   ];
   var EMAIL = "visitgubbioapp@gmail.com";
 
+  // Mostra solo le attività il cui nome contiene una di queste parole.
+  // Per tornare a mostrare in automatico tutte quelle dell'app: var ONLY_THESE = [];
+  var ONLY_THESE = ["focolare", "terzo tempo", "contessa"];
+
   var TEXTS = {
     it: {
       title: "I nostri sostenitori · Visit Gubbio",
@@ -164,6 +168,12 @@
       rows.forEach(function (row) { map[row.entity_id] = row.content || {}; });
       translations[lang] = map;
     }).catch(function () {});
+  }
+
+  function isShown(name) {
+    if (!ONLY_THESE.length) return true;
+    var lower = name.toLowerCase();
+    return ONLY_THESE.some(function (word) { return lower.indexOf(word) !== -1; });
   }
 
   function description(sponsor) {
@@ -357,7 +367,7 @@
 
   loadSponsors().then(function (rows) {
     sponsors = rows
-      .filter(function (row) { return row.nome && row.nome.trim(); })
+      .filter(function (row) { return row.nome && row.nome.trim() && isShown(row.nome); })
       .sort(function (a, b) { return a.nome.localeCompare(b.nome, "it"); });
     return loadTranslations(current);
   }).catch(function () {
