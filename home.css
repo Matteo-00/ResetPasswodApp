@@ -1084,11 +1084,11 @@ dialog p {
 .sponsor-mark {
   position: relative;
   display: block;
-  width: 104px;
-  height: 104px;
+  width: 100%;
+  height: 112px;
   overflow: hidden;
-  border-radius: 18px;
-  background: var(--avorio);
+  border-radius: 12px;
+  background: #ffffff;
 }
 
 .sponsor-mark img {
@@ -1096,7 +1096,8 @@ dialog p {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  background: #ffffff;
   transition: transform 0.35s ease;
 }
 
@@ -1109,6 +1110,8 @@ dialog p {
   inset: 0;
   display: grid;
   place-items: center;
+  border-radius: 12px;
+  background: var(--avorio);
   font: 700 42px/1 var(--serif);
   color: var(--tortora);
 }
@@ -1149,12 +1152,13 @@ dialog p {
 .dialog-logo {
   display: flex;
   justify-content: center;
+  margin-top: 16px;
 }
 
 .dialog-logo .sponsor-mark {
-  width: 150px;
-  height: 150px;
-  border-radius: 24px;
+  width: 100%;
+  max-width: 320px;
+  height: 170px;
 }
 
 dialog[open] .dialog-logo .sponsor-mark {
@@ -1222,8 +1226,7 @@ dialog .btn[hidden] {
   }
 
   .sponsor-mark {
-    width: 88px;
-    height: 88px;
+    height: 92px;
   }
 }
 
