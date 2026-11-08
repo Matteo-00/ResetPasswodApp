@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Visit Gubbio · La guida di Gubbio sul tuo telefono</title>
+  <meta name="description" content="Visit Gubbio è l'app per scoprire Gubbio: mappa, luoghi, itinerari, eventi, ristoranti, hotel e storia della città." />
+  <link rel="canonical" href="https://visitgubbio.eu/home.html" />
+  <link rel="icon" type="image/png" href="img/logo-app.png" />
+  <meta property="og:title" content="Visit Gubbio" />
+  <meta property="og:description" content="Scopri. Vivi. Ricorda. L'app per visitare Gubbio." />
+  <meta property="og:image" content="https://visitgubbio.eu/img/logo-app.png" />
+  <meta property="og:url" content="https://visitgubbio.eu/home.html" />
+  <link rel="stylesheet" href="home.css" />
+</head>
+<body>
+  <main class="page">
+
+    <div class="lang-switch" role="group" aria-label="Language">
+      <button type="button" data-lang="it">IT</button>
+      <button type="button" data-lang="en">EN</button>
+      <button type="button" data-lang="de">DE</button>
+      <button type="button" data-lang="fr">FR</button>
+    </div>
+
+    <section class="hero">
+      <img class="logo" src="img/logo-app.png" width="296" height="303" alt="Visit Gubbio" />
+      <h1 data-i18n="heroTitle"></h1>
+      <p class="subtitle" data-i18n="heroText"></p>
+
+      <div class="stores">
+        <!-- I link si impostano in cima a home.js -->
+        <a class="store" id="store-ios" target="_blank" rel="noopener">
+          <span class="store-small" data-store-label></span>
+          <span class="store-name">App Store</span>
+        </a>
+        <a class="store" id="store-android" target="_blank" rel="noopener">
+          <span class="store-small" data-store-label></span>
+          <span class="store-name">Google Play</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="features" aria-labelledby="features-title">
+      <h2 id="features-title" data-i18n="featuresTitle"></h2>
+      <ul class="feature-grid">
+        <li>
+          <img src="img/albero.png" width="96" height="96" alt="" loading="lazy" />
+          <h3 data-i18n="f1Title"></h3>
+          <p data-i18n="f1Text"></p>
+        </li>
+        <li>
+          <img src="img/palazzo.png" width="96" height="96" alt="" loading="lazy" />
+          <h3 data-i18n="f2Title"></h3>
+          <p data-i18n="f2Text"></p>
+        </li>
+        <li>
+          <img src="img/anfiteatro.png" width="96" height="96" alt="" loading="lazy" />
+          <h3 data-i18n="f3Title"></h3>
+          <p data-i18n="f3Text"></p>
+        </li>
+        <li>
+          <img src="img/balestra.png" width="96" height="96" alt="" loading="lazy" />
+          <h3 data-i18n="f4Title"></h3>
+          <p data-i18n="f4Text"></p>
+        </li>
+        <li>
+          <img src="img/crescia.png" width="96" height="96" alt="" loading="lazy" />
+          <h3 data-i18n="f5Title"></h3>
+          <p data-i18n="f5Text"></p>
+        </li>
+        <li>
+          <img src="img/san_francesco.png" width="96" height="96" alt="" loading="lazy" />
+          <h3 data-i18n="f6Title"></h3>
+          <p data-i18n="f6Text"></p>
+        </li>
+      </ul>
+    </section>
+
+    <footer class="footer">
+      <p class="tagline">Visit Gubbio · <span data-i18n="tagline"></span></p>
+      <nav>
+        <a href="privacy-policy.html" data-i18n="privacy"></a>
+        <span aria-hidden="true">·</span>
+        <a href="terms.html" data-i18n="terms"></a>
+      </nav>
+    </footer>
+  </main>
+
+  <script src="home.js"></script>
+</body>
+</html>
