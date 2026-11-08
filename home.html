@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" class="notranslate" translate="no">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- La pagina ha già le sue 4 lingue: niente traduzione automatica del browser -->
+  <meta name="google" content="notranslate" />
   <title>Visit Gubbio · La guida di Gubbio sul tuo telefono</title>
   <meta name="description" content="Visit Gubbio è l'app per scoprire Gubbio: mappa, luoghi, itinerari, eventi, ristoranti, hotel e storia della città." />
   <link rel="canonical" href="https://visitgubbio.eu/home.html" />
@@ -11,24 +13,25 @@
   <meta property="og:description" content="Scopri. Vivi. Ricorda. L'app per visitare Gubbio." />
   <meta property="og:image" content="https://visitgubbio.eu/img/logo-app.png" />
   <meta property="og:url" content="https://visitgubbio.eu/home.html" />
+  <script>document.documentElement.className += " js";</script>
   <link rel="stylesheet" href="home.css" />
 </head>
 <body>
   <main class="page">
 
-    <div class="lang-switch" role="group" aria-label="Language">
+    <div class="lang-switch enter" style="--d: 0ms" role="group" aria-label="Language">
       <button type="button" data-lang="it">IT</button>
       <button type="button" data-lang="en">EN</button>
       <button type="button" data-lang="de">DE</button>
       <button type="button" data-lang="fr">FR</button>
     </div>
 
-    <section class="hero">
+    <section class="hero enter" style="--d: 60ms">
       <img class="logo" src="img/logo-app.png" width="296" height="303" alt="Visit Gubbio" />
-      <h1 data-i18n="heroTitle"></h1>
-      <p class="subtitle" data-i18n="heroText"></p>
+      <h1 class="enter" style="--d: 260ms" data-i18n="heroTitle"></h1>
+      <p class="subtitle enter" style="--d: 360ms" data-i18n="heroText"></p>
 
-      <div class="stores">
+      <div class="stores enter" style="--d: 460ms">
         <!-- I link si impostano in cima a home.js -->
         <a class="store" id="store-ios" target="_blank" rel="noopener">
           <span class="store-small" data-store-label></span>
@@ -39,42 +42,106 @@
           <span class="store-name">Google Play</span>
         </a>
       </div>
+
+      <a class="hero-contact enter" style="--d: 560ms" href="#contatti">
+        <span data-i18n="heroContact"></span>
+        <span class="arrow-down" aria-hidden="true">↓</span>
+      </a>
     </section>
 
     <section class="features" aria-labelledby="features-title">
-      <h2 id="features-title" data-i18n="featuresTitle"></h2>
+      <h2 id="features-title" class="reveal" data-i18n="featuresTitle"></h2>
       <ul class="feature-grid">
-        <li>
-          <img src="img/albero.png" width="96" height="96" alt="" loading="lazy" />
-          <h3 data-i18n="f1Title"></h3>
-          <p data-i18n="f1Text"></p>
+        <li class="reveal" style="--d: 0ms">
+          <button type="button" class="feature" data-feature="1">
+            <img src="img/albero.png" width="96" height="96" alt="" />
+            <h3 data-i18n="f1Title"></h3>
+            <p data-i18n="f1Text"></p>
+            <span class="more"><span data-i18n="more"></span> <span aria-hidden="true">→</span></span>
+          </button>
         </li>
-        <li>
-          <img src="img/palazzo.png" width="96" height="96" alt="" loading="lazy" />
-          <h3 data-i18n="f2Title"></h3>
-          <p data-i18n="f2Text"></p>
+        <li class="reveal" style="--d: 90ms">
+          <button type="button" class="feature" data-feature="2">
+            <img src="img/palazzo.png" width="96" height="96" alt="" />
+            <h3 data-i18n="f2Title"></h3>
+            <p data-i18n="f2Text"></p>
+            <span class="more"><span data-i18n="more"></span> <span aria-hidden="true">→</span></span>
+          </button>
         </li>
-        <li>
-          <img src="img/anfiteatro.png" width="96" height="96" alt="" loading="lazy" />
-          <h3 data-i18n="f3Title"></h3>
-          <p data-i18n="f3Text"></p>
+        <li class="reveal" style="--d: 180ms">
+          <button type="button" class="feature" data-feature="3">
+            <img src="img/anfiteatro.png" width="96" height="96" alt="" />
+            <h3 data-i18n="f3Title"></h3>
+            <p data-i18n="f3Text"></p>
+            <span class="more"><span data-i18n="more"></span> <span aria-hidden="true">→</span></span>
+          </button>
         </li>
-        <li>
-          <img src="img/balestra.png" width="96" height="96" alt="" loading="lazy" />
-          <h3 data-i18n="f4Title"></h3>
-          <p data-i18n="f4Text"></p>
+        <li class="reveal" style="--d: 0ms">
+          <button type="button" class="feature" data-feature="4">
+            <img src="img/balestra.png" width="96" height="96" alt="" />
+            <h3 data-i18n="f4Title"></h3>
+            <p data-i18n="f4Text"></p>
+            <span class="more"><span data-i18n="more"></span> <span aria-hidden="true">→</span></span>
+          </button>
         </li>
-        <li>
-          <img src="img/crescia.png" width="96" height="96" alt="" loading="lazy" />
-          <h3 data-i18n="f5Title"></h3>
-          <p data-i18n="f5Text"></p>
+        <li class="reveal" style="--d: 90ms">
+          <button type="button" class="feature" data-feature="5">
+            <img src="img/crescia.png" width="96" height="96" alt="" />
+            <h3 data-i18n="f5Title"></h3>
+            <p data-i18n="f5Text"></p>
+            <span class="more"><span data-i18n="more"></span> <span aria-hidden="true">→</span></span>
+          </button>
         </li>
-        <li>
-          <img src="img/san_francesco.png" width="96" height="96" alt="" loading="lazy" />
-          <h3 data-i18n="f6Title"></h3>
-          <p data-i18n="f6Text"></p>
+        <li class="reveal" style="--d: 180ms">
+          <button type="button" class="feature" data-feature="6">
+            <img src="img/san_francesco.png" width="96" height="96" alt="" />
+            <h3 data-i18n="f6Title"></h3>
+            <p data-i18n="f6Text"></p>
+            <span class="more"><span data-i18n="more"></span> <span aria-hidden="true">→</span></span>
+          </button>
         </li>
       </ul>
+    </section>
+
+    <section class="contacts" id="contatti" aria-labelledby="contacts-title">
+      <div class="contact-hero reveal">
+        <div class="faces" aria-hidden="true">
+          <span class="face face-left">🙂</span>
+          <span class="face face-main">👋</span>
+          <span class="face face-right">😊</span>
+        </div>
+        <h2 id="contacts-title" data-i18n="contactHello"></h2>
+        <p data-i18n="contactIntro"></p>
+      </div>
+
+      <div class="invite-grid">
+        <article class="invite reveal" style="--d: 0ms">
+          <div class="invite-head">
+            <span class="invite-icon icon-join" aria-hidden="true">🤝</span>
+            <h3 data-i18n="contactJoinTitle"></h3>
+          </div>
+          <p data-i18n="contactJoinText"></p>
+          <a class="btn" data-mail-subject="contactSubjectJoin" data-i18n="contactWrite"></a>
+        </article>
+        <article class="invite reveal" style="--d: 110ms">
+          <div class="invite-head">
+            <span class="invite-icon icon-help" aria-hidden="true">🙋</span>
+            <h3 data-i18n="contactHelpTitle"></h3>
+          </div>
+          <p data-i18n="contactHelpText"></p>
+          <a class="btn" data-mail-subject="contactSubjectHelp" data-i18n="contactWrite"></a>
+        </article>
+      </div>
+
+      <div class="email-card reveal">
+        <div>
+          <p class="email-label" data-i18n="contactEmailTitle"></p>
+          <p class="email-address">visitgubbioapp@gmail.com</p>
+        </div>
+        <button type="button" class="btn-outline" id="copy-email" data-i18n="contactCopy"></button>
+      </div>
+
+      <p class="thanks reveal" data-i18n="contactThanks"></p>
     </section>
 
     <footer class="footer">
@@ -86,6 +153,17 @@
       </nav>
     </footer>
   </main>
+
+  <!-- Finestra di dettaglio delle funzionalità -->
+  <dialog id="feature-dialog" aria-labelledby="dialog-title">
+    <button type="button" class="dialog-close" id="dialog-close" data-i18n-aria="close">×</button>
+    <img id="dialog-image" src="img/albero.png" width="192" height="192" alt="" />
+    <h3 id="dialog-title"></h3>
+    <p id="dialog-text"></p>
+    <a class="btn" id="dialog-cta" href="#" data-i18n="dialogCta"></a>
+  </dialog>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="home.js"></script>
 </body>

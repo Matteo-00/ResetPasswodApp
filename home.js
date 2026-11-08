@@ -32,7 +32,31 @@ var GOOGLE_PLAY_URL = "";
       f6Text: "Le epoche e i racconti che hanno fatto Gubbio.",
       tagline: "Scopri. Vivi. Ricorda.",
       privacy: "Privacy",
-      terms: "Termini e condizioni"
+      terms: "Termini e condizioni",
+      heroContact: "Hai bisogno di noi? Contattaci",
+      more: "Scopri di più",
+      close: "Chiudi",
+      dialogCta: "Scrivici per saperne di più",
+      f1Long: "Ristoranti, luoghi, parcheggi ed eventi di oggi sulla stessa mappa, anche in vista satellitare. Scegli cosa vedere e trova subito la strada.",
+      f2Long: "Palazzi, chiese e monumenti con la loro scheda. Trovi anche i servizi utili per muoverti in città, come ascensori e bagni, e puoi salvare i preferiti.",
+      f3Long: "Percorsi già pronti, divisi in tappe: apri l'itinerario e segui la città passo dopo passo.",
+      f4Long: "Gli appuntamenti in città, compresi quelli importati dal sito del Comune di Gubbio, sempre con la fonte e il link all'originale.",
+      f5Long: "Dove fermarti per una crescia, un aperitivo o la notte: ristoranti, bar e hotel con le recensioni di chi ci è già stato.",
+      f6Long: "Dalle origini ai giorni nostri: un viaggio tra le epoche e i racconti della città, da leggere prima o durante la visita.",
+      contactHello: "Ciao! Siamo qui per te",
+      contactIntro: "Visit Gubbio nasce dalla passione per la nostra città. Ci farà un enorme piacere sentirti: scrivici quando vuoi!",
+      contactJoinTitle: "Diventa nostro collaboratore",
+      contactJoinText: "Hai un locale, una bottega, un agriturismo o una storia da raccontare su Gubbio? Entra a far parte di Visit Gubbio e aiutaci a far conoscere la città a chi la visita.",
+      contactHelpTitle: "Domande o problemi?",
+      contactHelpText: "Qualcosa non funziona o hai un'idea per migliorare l'app? Scrivici: ti rispondiamo volentieri e il più presto possibile.",
+      contactWrite: "Scrivici un'email",
+      contactEmailTitle: "LA NOSTRA EMAIL",
+      contactCopy: "Copia indirizzo",
+      contactCopied: "Indirizzo copiato",
+      contactThanks: "Grazie di cuore per aver scelto Visit Gubbio",
+      contactSubjectJoin: "Voglio collaborare con Visit Gubbio",
+      contactSubjectHelp: "Domanda o problema su Visit Gubbio",
+      dialogSubject: "Informazioni su Visit Gubbio"
     },
     en: {
       title: "Visit Gubbio · Your guide to Gubbio on your phone",
@@ -55,7 +79,31 @@ var GOOGLE_PLAY_URL = "";
       f6Text: "The eras and stories that shaped Gubbio.",
       tagline: "Discover. Live. Remember.",
       privacy: "Privacy",
-      terms: "Terms and conditions"
+      terms: "Terms and conditions",
+      heroContact: "Need us? Get in touch",
+      more: "Learn more",
+      close: "Close",
+      dialogCta: "Write to us to find out more",
+      f1Long: "Restaurants, places, car parks and today's events on the same map, with satellite view too. Choose what to see and find your way straight away.",
+      f2Long: "Palaces, churches and monuments, each with its own page. You'll also find useful services for getting around, such as lifts and toilets, and you can save your favourites.",
+      f3Long: "Ready-made routes divided into stops: open an itinerary and follow the city step by step.",
+      f4Long: "What's on in town, including events imported from the Municipality of Gubbio website, always with the source and a link to the original.",
+      f5Long: "Where to stop for a crescia, a drink or the night: restaurants, bars and hotels with reviews from people who have been there.",
+      f6Long: "From the origins to the present day: a journey through the city's eras and stories, to read before or during your visit.",
+      contactHello: "Hi! We are here for you",
+      contactIntro: "Visit Gubbio is born from our love for our town. We would be delighted to hear from you: write to us any time!",
+      contactJoinTitle: "Become one of our collaborators",
+      contactJoinText: "Do you have a restaurant, a shop, a farm stay or a story to tell about Gubbio? Join Visit Gubbio and help us show the town to those who visit.",
+      contactHelpTitle: "Questions or problems?",
+      contactHelpText: "Something not working, or an idea to improve the app? Write to us: we will be happy to reply as soon as possible.",
+      contactWrite: "Send us an email",
+      contactEmailTitle: "OUR EMAIL",
+      contactCopy: "Copy address",
+      contactCopied: "Address copied",
+      contactThanks: "Thank you from the heart for choosing Visit Gubbio",
+      contactSubjectJoin: "I would like to collaborate with Visit Gubbio",
+      contactSubjectHelp: "Question or problem about Visit Gubbio",
+      dialogSubject: "Information about Visit Gubbio"
     },
     de: {
       title: "Visit Gubbio · Dein Gubbio-Reiseführer auf dem Handy",
@@ -78,7 +126,31 @@ var GOOGLE_PLAY_URL = "";
       f6Text: "Die Epochen und Erzählungen, die Gubbio geprägt haben.",
       tagline: "Entdecken. Erleben. Erinnern.",
       privacy: "Datenschutz",
-      terms: "Nutzungsbedingungen"
+      terms: "Nutzungsbedingungen",
+      heroContact: "Brauchst du uns? Schreib uns",
+      more: "Mehr erfahren",
+      close: "Schließen",
+      dialogCta: "Schreib uns für mehr Infos",
+      f1Long: "Restaurants, Orte, Parkplätze und die heutigen Veranstaltungen auf einer Karte, auch in der Satellitenansicht. Wähle aus, was du sehen möchtest, und finde sofort den Weg.",
+      f2Long: "Paläste, Kirchen und Denkmäler mit eigener Seite. Außerdem findest du nützliche Services für unterwegs, etwa Aufzüge und Toiletten, und kannst Favoriten speichern.",
+      f3Long: "Fertige Routen, in Etappen aufgeteilt: Öffne eine Route und entdecke die Stadt Schritt für Schritt.",
+      f4Long: "Termine in der Stadt, auch von der Website der Gemeinde Gubbio übernommen, immer mit Quelle und Link zum Original.",
+      f5Long: "Wo du für eine Crescia, einen Aperitif oder die Nacht einkehren kannst: Restaurants, Bars und Hotels mit Bewertungen von anderen Gästen.",
+      f6Long: "Von den Anfängen bis heute: eine Reise durch die Epochen und Erzählungen der Stadt, zum Lesen vor oder während des Besuchs.",
+      contactHello: "Hallo! Wir sind für dich da",
+      contactIntro: "Visit Gubbio entsteht aus der Liebe zu unserer Stadt. Wir freuen uns riesig, von dir zu hören: schreib uns jederzeit!",
+      contactJoinTitle: "Werde einer unserer Mitarbeiter",
+      contactJoinText: "Hast du ein Lokal, ein Geschäft, einen Agriturismo oder eine Geschichte über Gubbio zu erzählen? Werde Teil von Visit Gubbio und hilf uns, die Stadt ihren Besuchern näherzubringen.",
+      contactHelpTitle: "Fragen oder Probleme?",
+      contactHelpText: "Funktioniert etwas nicht oder hast du eine Idee, wie wir die App verbessern können? Schreib uns: wir antworten gern und so schnell wie möglich.",
+      contactWrite: "E-Mail schreiben",
+      contactEmailTitle: "UNSERE E-MAIL",
+      contactCopy: "Adresse kopieren",
+      contactCopied: "Adresse kopiert",
+      contactThanks: "Von Herzen danke, dass du Visit Gubbio gewählt hast",
+      contactSubjectJoin: "Ich möchte mit Visit Gubbio zusammenarbeiten",
+      contactSubjectHelp: "Frage oder Problem zu Visit Gubbio",
+      dialogSubject: "Informationen zu Visit Gubbio"
     },
     fr: {
       title: "Visit Gubbio · Votre guide de Gubbio sur votre téléphone",
@@ -101,10 +173,38 @@ var GOOGLE_PLAY_URL = "";
       f6Text: "Les époques et les récits qui ont façonné Gubbio.",
       tagline: "Découvrir. Vivre. Se souvenir.",
       privacy: "Confidentialité",
-      terms: "Conditions d'utilisation"
+      terms: "Conditions d'utilisation",
+      heroContact: "Besoin de nous ? Contactez-nous",
+      more: "En savoir plus",
+      close: "Fermer",
+      dialogCta: "Écrivez-nous pour en savoir plus",
+      f1Long: "Restaurants, lieux, parkings et événements du jour sur la même carte, également en vue satellite. Choisissez ce que vous voulez voir et trouvez aussitôt votre chemin.",
+      f2Long: "Palais, églises et monuments, chacun avec sa fiche. Vous trouverez aussi des services utiles pour vous déplacer, comme les ascenseurs et les toilettes, et vous pourrez enregistrer vos favoris.",
+      f3Long: "Des parcours prêts à l'emploi, divisés en étapes : ouvrez un itinéraire et suivez la ville pas à pas.",
+      f4Long: "Les rendez-vous en ville, y compris ceux importés du site de la Commune de Gubbio, toujours avec la source et le lien vers l'original.",
+      f5Long: "Où s'arrêter pour une crescia, un apéritif ou la nuit : restaurants, bars et hôtels avec les avis de ceux qui y sont allés.",
+      f6Long: "Des origines à nos jours : un voyage à travers les époques et les récits de la ville, à lire avant ou pendant la visite.",
+      contactHello: "Bonjour ! Nous sommes là pour vous",
+      contactIntro: "Visit Gubbio est né de la passion pour notre ville. Nous serons ravis de vous lire : écrivez-nous quand vous voulez !",
+      contactJoinTitle: "Devenez notre collaborateur",
+      contactJoinText: "Vous avez un restaurant, une boutique, un agritourisme ou une histoire à raconter sur Gubbio ? Rejoignez Visit Gubbio et aidez-nous à faire découvrir la ville à ceux qui la visitent.",
+      contactHelpTitle: "Des questions ou des problèmes ?",
+      contactHelpText: "Quelque chose ne fonctionne pas ou vous avez une idée pour améliorer l'application ? Écrivez-nous : nous répondrons avec plaisir et au plus vite.",
+      contactWrite: "Nous envoyer un e-mail",
+      contactEmailTitle: "NOTRE E-MAIL",
+      contactCopy: "Copier l'adresse",
+      contactCopied: "Adresse copiée",
+      contactThanks: "Merci de tout cœur d'avoir choisi Visit Gubbio",
+      contactSubjectJoin: "Je souhaite collaborer avec Visit Gubbio",
+      contactSubjectHelp: "Question ou problème sur Visit Gubbio",
+      dialogSubject: "Informations sur Visit Gubbio"
     }
   };
 
+  var EMAIL = "visitgubbioapp@gmail.com";
+  var FEATURE_IMAGES = { 1: "albero", 2: "palazzo", 3: "anfiteatro", 4: "balestra", 5: "crescia", 6: "san_francesco" };
+  var current = "it";
+  
   var SUPPORTED = ["it", "en", "de", "fr"];
   var STORES = [
     { id: "store-ios", url: APP_STORE_URL },
@@ -132,13 +232,24 @@ var GOOGLE_PLAY_URL = "";
     return "it";
   }
 
+  function mailto(subject) {
+    return "mailto:" + EMAIL + "?subject=" + encodeURIComponent(subject);
+  }
+
   function apply(lang) {
+    current = lang;
     var dict = TEXTS[lang];
     document.documentElement.lang = lang;
     document.title = dict.title;
 
     document.querySelectorAll("[data-i18n]").forEach(function (el) {
       el.textContent = dict[el.getAttribute("data-i18n")];
+    });
+    document.querySelectorAll("[data-i18n-aria]").forEach(function (el) {
+      el.setAttribute("aria-label", dict[el.getAttribute("data-i18n-aria")]);
+    });
+    document.querySelectorAll("[data-mail-subject]").forEach(function (el) {
+      el.href = mailto(dict[el.getAttribute("data-mail-subject")]);
     });
     STORES.forEach(function (store) {
       document.querySelector("#" + store.id + " [data-store-label]").textContent =
@@ -167,4 +278,109 @@ var GOOGLE_PLAY_URL = "";
   });
 
   apply(pickLanguage());
+
+  // ------------------------------------------------------------
+  // Comparsa degli elementi durante lo scorrimento
+  // ------------------------------------------------------------
+  var revealItems = document.querySelectorAll(".reveal");
+  if ("IntersectionObserver" in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("in");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealItems.forEach(function (el) { observer.observe(el); });
+  } else {
+    revealItems.forEach(function (el) { el.classList.add("in"); });
+  }
+
+  // ------------------------------------------------------------
+  // Finestra di dettaglio
+  // ------------------------------------------------------------
+  var dialog = document.getElementById("feature-dialog");
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  function openFeature(id) {
+    var dict = TEXTS[current];
+    document.getElementById("dialog-image").src = "img/" + FEATURE_IMAGES[id] + ".png";
+    document.getElementById("dialog-title").textContent = dict["f" + id + "Title"];
+    document.getElementById("dialog-text").textContent = dict["f" + id + "Long"];
+    document.getElementById("dialog-cta").href = mailto(dict.dialogSubject);
+    dialog.classList.remove("closing");
+    dialog.showModal();
+  }
+
+  function closeFeature() {
+    if (!dialog.open || dialog.classList.contains("closing")) return;
+    if (reduceMotion.matches) {
+      dialog.close();
+      return;
+    }
+    dialog.classList.add("closing");
+    dialog.addEventListener("animationend", function done(event) {
+      if (event.target !== dialog) return;
+      dialog.removeEventListener("animationend", done);
+      dialog.classList.remove("closing");
+      dialog.close();
+    });
+  }
+
+  document.querySelectorAll(".feature").forEach(function (button) {
+    button.addEventListener("click", function () {
+      openFeature(button.getAttribute("data-feature"));
+    });
+  });
+  document.getElementById("dialog-close").addEventListener("click", closeFeature);
+  dialog.addEventListener("cancel", function (event) {
+    event.preventDefault();
+    closeFeature();
+  });
+  // Clic sullo sfondo scuro
+  dialog.addEventListener("click", function (event) {
+    if (event.target === dialog) {
+      var r = dialog.getBoundingClientRect();
+      var inside = event.clientX >= r.left && event.clientX <= r.right &&
+        event.clientY >= r.top && event.clientY <= r.bottom;
+      if (!inside) closeFeature();
+    }
+  });
+
+  // ------------------------------------------------------------
+  // Copia dell'indirizzo email
+  // ------------------------------------------------------------
+  var toast = document.getElementById("toast");
+  var toastTimer;
+
+  function showToast(text) {
+    toast.textContent = text;
+    toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { toast.classList.remove("show"); }, 2200);
+  }
+
+  function copyFallback() {
+    var field = document.createElement("textarea");
+    field.value = EMAIL;
+    field.style.position = "fixed";
+    field.style.opacity = "0";
+    document.body.appendChild(field);
+    field.select();
+    var ok = false;
+    try { ok = document.execCommand("copy"); } catch (e) {}
+    field.remove();
+    showToast(ok ? TEXTS[current].contactCopied : EMAIL);
+  }
+
+  document.getElementById("copy-email").addEventListener("click", function () {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(EMAIL).then(function () {
+        showToast(TEXTS[current].contactCopied);
+      }, copyFallback);
+    } else {
+      copyFallback();
+    }
+  });
 })();
