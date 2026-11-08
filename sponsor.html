@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="it" class="notranslate" translate="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="google" content="notranslate" />
+  <title>I nostri sostenitori · Visit Gubbio</title>
+  <meta name="description" content="Le attività di Gubbio che rendono possibile il progetto Visit Gubbio." />
+  <link rel="canonical" href="https://visitgubbio.eu/sponsor.html" />
+  <link rel="icon" type="image/png" href="img/logo-app.png" />
+  <script>document.documentElement.className += " js";</script>
+  <link rel="stylesheet" href="home.css" />
+</head>
+<body>
+  <main class="page">
+
+    <div class="topbar enter" style="--d: 0ms">
+      <a class="back-link" href="home.html"><span aria-hidden="true">←</span> <span data-i18n="back"></span></a>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang="it">IT</button>
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="de">DE</button>
+        <button type="button" data-lang="fr">FR</button>
+      </div>
+    </div>
+
+    <header class="sponsor-header enter" style="--d: 80ms">
+      <a href="home.html"><img class="sponsor-logo" src="img/logo-app.png" width="296" height="303" alt="Visit Gubbio" /></a>
+      <h1 data-i18n="heroTitle"></h1>
+      <p class="subtitle" data-i18n="heroText"></p>
+    </header>
+
+    <section class="sponsor-section" aria-live="polite">
+      <!-- Riempito da sponsor.js -->
+      <ul class="sponsor-grid" id="sponsor-grid"></ul>
+      <p class="sponsor-message" id="sponsor-message" hidden></p>
+    </section>
+
+    <section class="join-banner reveal">
+      <h2 data-i18n="joinTitle"></h2>
+      <p data-i18n="joinText"></p>
+      <a class="btn" id="join-link" data-i18n="joinCta"></a>
+    </section>
+
+    <footer class="footer">
+      <p class="tagline">Visit Gubbio · <span data-i18n="tagline"></span></p>
+      <nav>
+        <a href="privacy-policy.html" data-i18n="privacy"></a>
+        <span aria-hidden="true">·</span>
+        <a href="terms.html" data-i18n="terms"></a>
+      </nav>
+    </footer>
+  </main>
+
+  <dialog id="sponsor-dialog" aria-labelledby="dialog-title">
+    <button type="button" class="dialog-close" id="dialog-close" data-i18n-aria="close">×</button>
+    <div class="dialog-logo" id="dialog-logo"></div>
+    <h3 id="dialog-title"></h3>
+    <p id="dialog-text"></p>
+    <a class="btn" id="dialog-link" target="_blank" rel="noopener" data-i18n="visitSite"></a>
+  </dialog>
+
+  <script src="sponsor.js"></script>
+</body>
+</html>
