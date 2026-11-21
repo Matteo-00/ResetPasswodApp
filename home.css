@@ -68,6 +68,7 @@ body {
 
 /* Hero */
 .hero {
+  position: relative;
   width: 100%;
   background: #ffffff;
   border-radius: var(--radius);
@@ -77,6 +78,32 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
+}
+
+/* Patrocinio del Comune di Gubbio, in alto a destra nel riquadro: è in
+   posizione assoluta, quindi non sposta gli altri elementi. */
+.patrocinio {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  max-width: 150px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.patrocinio span {
+  font: 600 11px/1.25 var(--sans);
+  letter-spacing: 0.2px;
+  color: #736c64;
+}
+
+.patrocinio img {
+  width: 100px;
+  height: auto;
 }
 
 .logo {
@@ -263,6 +290,21 @@ h3 {
 
   .logo {
     width: 170px;
+  }
+
+  .patrocinio {
+    top: 12px;
+    right: 10px;
+    max-width: 80px;
+    gap: 3px;
+  }
+
+  .patrocinio span {
+    font-size: 9px;
+  }
+
+  .patrocinio img {
+    width: 66px;
   }
 
   h1 {
