@@ -229,7 +229,7 @@ var GOOGLE_PLAY_URL = "";
     }
   };
 
-  var EMAIL = "visitgubbioapp@gmail.com";
+  var EMAIL = "info@visitgubbio.eu";
   var FEATURE_IMAGES = { 1: "albero", 2: "palazzo", 3: "anfiteatro", 4: "balestra", 5: "crescia", 6: "san_francesco" };
   var current = "it";
   
