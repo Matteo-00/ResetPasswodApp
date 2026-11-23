@@ -16,7 +16,7 @@
     { table: "hotel" },
     { table: "luoghi", filter: "&tipo=eq.agriturismo" }
   ];
-  var EMAIL = "visitgubbioapp@gmail.com";
+  var EMAIL = "info@visitgubbio.eu";
 
   // Mostra solo le attività il cui nome contiene una di queste parole.
   // Per tornare a mostrare in automatico tutte quelle dell'app: var ONLY_THESE = [];
